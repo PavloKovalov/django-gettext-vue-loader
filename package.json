@@ -1,0 +1,22 @@
+{
+  "name": "django-gettext-vue-loader",
+  "version": "0.1.0",
+  "description": "Loader for vue.js templates that allows to use django gettext template syntax",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "webpack",
+    "loader",
+    "django",
+    "gettext",
+    "template"
+  ],
+  "author": "Pavel Kovalyov <pavel.kovalyov@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.7.4"
+  }
+}
