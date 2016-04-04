@@ -23,6 +23,8 @@ module.exports = function (babel) {
                     args.push(l);
                     if (t.isObjectExpression(r) || t.isArrayExpression(r)) {
                         args.push(r);
+                    } else if (t.isSequenceExpression(r)) {
+                        args.push(t.ArrayExpression(r.expressions));
                     } else if (t.isIdentifier(r)) {
                         args.push(t.ArrayExpression([r]));
                     }
@@ -36,7 +38,7 @@ module.exports = function (babel) {
                     if (t.isBinaryExpression(r) && r.operator === '%') {
                         if (t.isObjectExpression(r.right)) {
                             args.push(t.ObjectExpression(r.right.properties));
-                            args.push(t.Literal(true));
+                            args.push(t.BooleanLiteral(true));
                         }
                     }
 

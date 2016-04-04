@@ -4,7 +4,7 @@
   "description": "Loader for vue.js templates that allows to use django gettext template syntax",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests.js"
   },
   "keywords": [
     "vue",
@@ -17,6 +17,7 @@
   "author": "Pavel Kovalyov <pavel.kovalyov@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.7.4"
+    "babel-core": "^6.7.4",
+    "tape": "^4.5.1"
   }
 }
