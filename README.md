@@ -1,5 +1,8 @@
 django-gettext-vue-loader
 =====
+
+[![Build Status](https://travis-ci.org/PavloKovalov/django-gettext-vue-loader.svg?branch=master)](https://travis-ci.org/PavloKovalov/django-gettext-vue-loader)
+
 Loader for vue.js templates that allows to use django gettext template syntax
 
 :warning: Implementation is very raw, but usable for simple cases
