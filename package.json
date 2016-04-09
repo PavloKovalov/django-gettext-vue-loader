@@ -1,6 +1,6 @@
 {
   "name": "django-gettext-vue-loader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Loader for vue.js templates that allows to use django gettext template syntax",
   "main": "index.js",
   "scripts": {
