@@ -15,14 +15,38 @@ $ npm install --save-dev django-gettext-vue-loader
 
 ## Usage (with webpack and vue-loader)
 
-Add loader to your `webpack.config.js` in pipeline with `vue-loader`
+Add loader to your `webpack.config.js` in pipeline for html-files
 
+### with vue-loader
 ``` javascript
 {
-  module: { loaders: [
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+            preLoaders: {
+                html: 'django-gettext-vue-loader'
+            }
+        }
+      }
+    ]
+  }
+}
+```
+
+### with vue-template-loader
+``` javascript
+{
+  module: {
+    rules: [
       {
           test: /\.html$/,
-          loader: 'vue-html!django-gettext-vue'
+          loaders: [
+            { loader: 'vue-template-loader' },
+            { loader: 'django-gettext-vue-loader' }
+          ]
       }
     ]
   }
