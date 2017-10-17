@@ -2,6 +2,7 @@ django-gettext-vue-loader
 =====
 
 [![Build Status](https://travis-ci.org/PavloKovalov/django-gettext-vue-loader.svg?branch=master)](https://travis-ci.org/PavloKovalov/django-gettext-vue-loader)
+[![Code Climate](https://codeclimate.com/github/PavloKovalov/django-gettext-vue-loader/badges/gpa.svg)](https://codeclimate.com/github/PavloKovalov/django-gettext-vue-loader)
 
 Loader for vue.js templates that allows to use django gettext template syntax
 
