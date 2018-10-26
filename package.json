@@ -17,10 +17,9 @@
   ],
   "author": "Pavel Kovalyov <pavel.kovalyov@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "babel-core": "^6.7.4"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "tape": "^4.5.1"
+    "babel-core": "6.26.3",
+    "tape": "4.9.1"
   }
 }
