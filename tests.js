@@ -11,7 +11,10 @@ var transformTests = {
   '{{ username | capitalize }}': '{{ username | capitalize }}',
   '{{ "substitute %s" % "it" }}': '{{ interpolate("substitute %s", ["it"]) }}',
   '{{ \'<p>%s</p>\' % _(\'Hello\') }}': '{{ interpolate(\'<p>%s</p>\', gettext(\'Hello\')) }}',
-  '{{ "User: %(first)s %(last)s" % {"first": _("Kylo"), "last": _("Ren") } }}': '{{ interpolate("User: %(first)s %(last)s", { "first": gettext("Kylo"), "last": gettext("Ren") }, true) }}'
+  '{{ "User: %(first)s %(last)s" % {"first": _("Kylo"), "last": _("Ren") } }}': '{{ interpolate("User: %(first)s %(last)s", { "first": gettext("Kylo"), "last": gettext("Ren") }, true) }}',
+  ':placeholder="_(\'lorem ipsum dolor\')"': ':placeholder="gettext(\'lorem ipsum dolor\')"',
+  ':placeholder="someProp || _(\'lorem ipsum dolor\')"': ':placeholder="someProp || gettext(\'lorem ipsum dolor\')"',
+  '<fieldset class="some-fieldset" :class="{active: true}">': '<fieldset class="some-fieldset" :class="{active: true}">'
 };
 
 tape('loader should be a function', (t) => {
