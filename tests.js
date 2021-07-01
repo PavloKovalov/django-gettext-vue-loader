@@ -14,7 +14,8 @@ var transformTests = {
   '{{ "User: %(first)s %(last)s" % {"first": _("Kylo"), "last": _("Ren") } }}': '{{ interpolate("User: %(first)s %(last)s", { "first": gettext("Kylo"), "last": gettext("Ren") }, true) }}',
   ':placeholder="_(\'lorem ipsum dolor\')"': ':placeholder="gettext(\'lorem ipsum dolor\')"',
   ':placeholder="someProp || _(\'lorem ipsum dolor\')"': ':placeholder="someProp || gettext(\'lorem ipsum dolor\')"',
-  '<fieldset class="some-fieldset" :class="{active: true}">': '<fieldset class="some-fieldset" :class="{active: true}">'
+  '<fieldset class="some-fieldset" :class="{active: true}">': '<fieldset class="some-fieldset" :class="{active: true}">',
+  '<div> <input :key="`touch__${option.value}`"> </div>': '<div> <input :key="`touch__${option.value}`"> </div>'
 };
 
 tape('loader should be a function', (t) => {
