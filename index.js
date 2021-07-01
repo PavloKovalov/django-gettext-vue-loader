@@ -3,7 +3,7 @@ var babel = require('babel-core'),
 
 var matchPatterns = [
         '\{\{(.+?)\}\}',
-        '\:[a-zA-Z]+=\".*(_\(.+?\))\"'
+        ':[a-zA-Z]+="[^_\n]*(_[\(]\'.+\'[\)])"'
     ],
     regExp = new RegExp(matchPatterns.join('|'), 'gi');
 
