@@ -9,4 +9,7 @@ node_modules
 # Optional npm cache directory
 .npm
 
+# IDE config
+.vscode
+
 .DS_Store
