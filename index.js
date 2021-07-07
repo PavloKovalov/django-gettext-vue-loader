@@ -1,4 +1,4 @@
-var babel = require('babel-core'),
+var babel = require('@babel/core'),
     djangoGettextTransformPlugin = require('./babel-django-gettext-transform-plugin');
 
 var matchPatterns = [
@@ -11,10 +11,11 @@ module.exports = function (source) {
     source = source.replace(regExp, function (full, ...matched) {
         var matchedExpression = matched.slice(0, matchPatterns.length).filter(Boolean)[0];
         var result = babel.transform(matchedExpression.trim(), {
-            plugins: [djangoGettextTransformPlugin]
+            plugins: [djangoGettextTransformPlugin],
+            retainLines: true
         });
         var newExpression = result.code.replace(/;$/, '');
-        
+
         if (new RegExp(matchPatterns[0]).test(full)) {
             newExpression = ' ' + newExpression + ' ';
         }

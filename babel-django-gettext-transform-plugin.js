@@ -19,36 +19,34 @@ module.exports = function (babel) {
                     r = node.right,
                     args = [];
 
-                  if (node.operator === '%') {
-                      args.push(l);
+                if (node.operator === '%') {
+                    args.push(l);
 
-                      if (t.isSequenceExpression(r)) {
-                          args.push(t.ArrayExpression(r.expressions));
-                      } else if (t.isIdentifier(r) || t.isStringLiteral(r)) {
-                          args.push(t.ArrayExpression([r]));
-                      } else if (t.isObjectExpression(r)) {
-                          args.push(r);
-                          args.push(t.BooleanLiteral(true));
-                      } else {
-                          args.push(r);
-                      }
+                    if (t.isSequenceExpression(r)) {
+                        args.push(t.ArrayExpression(r.expressions));
+                    } else if (t.isIdentifier(r) || t.isStringLiteral(r)) {
+                        args.push(t.ArrayExpression([r]));
+                    } else if (t.isObjectExpression(r)) {
+                        args.push(r);
+                        args.push(t.BooleanLiteral(true));
+                    } else {
+                        args.push(r);
+                    }
 
-                      return path.replaceWith(t.CallExpression(t.Identifier('interpolate'), args));
-                  }
+                    path.replaceWith(t.CallExpression(t.Identifier('interpolate'), args));
+                } else if (t.isCallExpression(l) && l.callee.name === '_') {
+                    if (node.operator === '|') {
+                        args.push(t.CallExpression(t.Identifier('gettext'), l.arguments));
 
-                if (t.isCallExpression(l) && l.callee.name === '_') {
-                  if (node.operator === '|') {
-                      args.push(t.CallExpression(t.Identifier('gettext'), l.arguments));
+                        if (t.isBinaryExpression(r) && r.operator === '%') {
+                            if (t.isObjectExpression(r.right)) {
+                                args.push(t.ObjectExpression(r.right.properties));
+                                args.push(t.BooleanLiteral(true));
+                            }
+                        }
 
-                      if (t.isBinaryExpression(r) && r.operator === '%') {
-                          if (t.isObjectExpression(r.right)) {
-                              args.push(t.ObjectExpression(r.right.properties));
-                              args.push(t.BooleanLiteral(true));
-                          }
-                      }
-
-                      return path.replaceWith(t.CallExpression(t.Identifier('interpolate'), args));
-                  }
+                        path.replaceWith(t.CallExpression(t.Identifier('interpolate'), args));
+                    }
                 }
             }
         }

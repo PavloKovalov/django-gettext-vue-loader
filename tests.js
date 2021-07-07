@@ -3,6 +3,7 @@ var transform = require('./index.js');
 
 var transformTests = {
   '{{ _("voila") }}': '{{ gettext("voila") }}',
+  '{{ someProp || _("voila") }}': '{{ someProp || gettext("voila") }}',
   '{{ _(\'django is here!\') }}': '{{ gettext(\'django is here!\') }}',
   '{{ _("%(wicked)s django is massive")|filter % {wicked: "wicked"} }}': '{{ interpolate(gettext("%(wicked)s django is massive"), { wicked: "wicked" }, true) }}',
   '{{ _(\'%s %s %s no filter with list\') % [\'s\', \'s\',\'s\'] }}': '{{ interpolate(gettext(\'%s %s %s no filter with list\'), [\'s\', \'s\', \'s\']) }}',
