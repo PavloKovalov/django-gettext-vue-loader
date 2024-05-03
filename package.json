@@ -15,7 +15,7 @@
     "gettext",
     "template"
   ],
-  "author": "Pavel Kovalyov <pavel.kovalyov@gmail.com>",
+  "author": "Pavlo Kovalov <pavlo.kovalyov@gmail.com>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
